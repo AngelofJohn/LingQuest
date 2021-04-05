@@ -11,9 +11,9 @@ let currentQuest;
 let gameState = "default";
 
 function preload() {
-    spriteAtlas = loadImage("./assets/sprites/serene_village.png");
-    UIAtlas = loadImage("./assets/sprites/user_interface.png");
-    skinsAtlas = loadImage("./assets/sprites/skins.png");
+    spriteAtlas = loadImage("assets/sprites/serene_village.png");
+    UIAtlas = loadImage("assets/sprites/user_interface.png");
+    skinsAtlas = loadImage("assets/sprites/skins.png");
 }
 
 function setup() {
