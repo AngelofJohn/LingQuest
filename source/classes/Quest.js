@@ -20,7 +20,7 @@ class Quest {
         this.buttons["submit"].action = () => {
             if (player.answer.toLowerCase() == this.solutions[this.currentQuestion].toLowerCase()) {
                 player.balance += 2;
-                player.experience += 10;
+                player.experience += this.experience;
                 this.currentQuestion += 1;
                 if (this.currentQuestion < this.questions.length) { this.setupQuestion(); }
             } else {
