@@ -20,7 +20,6 @@ class Quest {
         this.buttons["submit"].action = () => {
             if (player.answer.toLowerCase() == this.solutions[this.currentQuestion].toLowerCase()) {
                 player.balance += 2;
-                player.experience += this.experience;
                 this.currentQuestion += 1;
                 if (this.currentQuestion < this.questions.length) { this.setupQuestion(); }
             } else {
@@ -61,7 +60,10 @@ class Quest {
         text(this.title, 2*tileSize, 3*tileSize);
  
         if (this.currentQuestion === -1) {  this.drawIntroduction(); }
-        else if (this.currentQuestion >= this.questions.length) { this.drawTermination(); }
+        else if (this.currentQuestion >= this.questions.length) {
+            player.experience += this.experience;
+            this.drawTermination();
+        }
         else {
             this.buttons["submit"].draw();
             this.buttons["quit"].draw();
