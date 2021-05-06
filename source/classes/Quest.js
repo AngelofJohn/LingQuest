@@ -62,6 +62,10 @@ class Quest {
         if (this.currentQuestion === -1) {  this.drawIntroduction(); }
         else if (this.currentQuestion >= this.questions.length) {
             player.experience += this.experience;
+            while (player.experience >= 100 * player.level*20) {
+                player.experience -= 100 * player.level*20;
+                player.level += 1;
+            }
             this.drawTermination();
         }
         else {

@@ -6,6 +6,7 @@ class Player {
         this.experience = 0;
         this.health = 4;
         this.inventory = [];
+        this.level = 1;
         this.completedQuests = [];
         this.name = "John";
 

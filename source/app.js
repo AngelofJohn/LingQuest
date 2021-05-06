@@ -41,7 +41,7 @@ function draw() {
     textAlign(RIGHT, CENTER);
     fill(colors.yellow);
     textSize(tileSize / 2);
-    text(`${player.experience}XP`, (columnCount - 1/2) * tileSize, tileSize/2);
+    text(`${player.experience}XP / Level ${player.level}`, (columnCount - 1/2) * tileSize, tileSize/2);
 
     // Map
     translate(0, topRows*tileSize);
