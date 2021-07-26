@@ -1,27 +1,34 @@
 const questData = {
-    "colors": {
-        "title": "Color Blind",
-        "introduction": "Hello Traveller! I am having trouble organizing these magical powders. These colors all look the same to me. I don't want to make a mess here because they could be very dangerous to use. Could you help me sort them?",
+    "baker": {
+        "title": "A Baker's Dozen",
+        "introduction": "Hello traveller, oh don't worry about me, I'm trying to bake bread for the upcoming festival but it seems that I don't have enough time to get it all ready in time. I know this might be a big ask but I am wondering if you would be able to help me? I am willing to reward you accordingly.",
         "questType": "input",
         "questions": [
-            "How to say \"red\"?",
-            "How to say \"blue\"?",
-            "How to say \"yellow\"?",
-            "How to say \"black\"?",
-            "How to say \"green\"?"
+            "How to say \"bread\"?",
+            "How to say \"eggs\"?",
+            "How to say \"flour\"?",
+            "How to say \"sugar\"?",
+            "How to say \"water\"?",
+            "How to say \"yeast\"?"
         ],
-        "solutions": ["rouge", "bleu", "jaune", "noir", "vert"],
+        "solutions": ["pain", "œufs", "farine", "sucre", "eau", "levure"],
+        "termination": "Thank you so much for helping out. Here, have a loaf of bread as your reward!",
+        "experience": 20
+    },
+    "fashionista": {
+        "title": "Fashionista",
+        "introduction": "Can’t decide, I can’t decide, decisions, decisions… What should I do? The festival starts in a few minutes and I have no idea what I want to wear. I’m going to be late! Late! Oh my goodness… Help me please, save me from this chaos.",
+        "questType": "input",
+        "questions": [
+            "How to say \"shirt\"?",
+            "How to say \"pants\"?",
+            "How to say \"skirt\"?",
+            "How to say \"belt\"?",
+            "How to say \"tie\"?",
+            "How to say \"jeans\"?"
+        ],
+        "solutions": ["chemise", "pantalon", "jupe", "ceinture", "cravate", "jeans"],
         "termination": "Thank you!",
         "experience": 20
     }
-    // "welcome": {
-    //     "title": "Hey my friend!",
-    //     "introduction": "Do you know how do we say piano in French? No? I'll teach you!",
-    //     "questType": "multipleChoice",
-    //     "questions": [
-    //         "How to say piano in French?\nguitar\nviolin\npiano",
-    //         "How to say spaghetti in French?\npenne\nspaghetti\nravioli"],
-    //     "solutions": ["piano", "spaghetti"],
-    //     "termination": "You are a true Italian speaker!"
-    // }
 };

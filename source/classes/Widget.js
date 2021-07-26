@@ -10,12 +10,12 @@ class Widget {
     contains(position) {
         const x = position[0] / tileSize;
         const y = position[1] / tileSize;
-        return this.position[0] <= x
-            && this.position[0] + this.width >= x
-            && this.position[1] <= y
-            && this.position[1] + this.heigth >= y;
+        console.log(y);
+        return x >= this.position[0] && x <= this.position[0] + this.width
+            && y >= this.position[1] && y <= this.position[1] + this.heigth;
     }
 }
+
 
 class Button extends Widget {
     constructor(position, text, color, width, heigth=1) {

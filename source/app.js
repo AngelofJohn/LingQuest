@@ -48,7 +48,8 @@ function draw() {
     for (var i = 0; i < rowCount; i++) {
         for (var j = 0; j < columnCount; j++) {
             drawSprite([j, i], spriteAtlas, lookupTable["grass"]);
-            drawSprite([j, i], spriteAtlas, lookupTable[mapData[i][j]]);
+            let inAtlas = lookupTable[mapData[mapIndex][i][j]];
+            drawSprite([j, i], spriteAtlas, inAtlas);
         }
     }
 
@@ -56,4 +57,5 @@ function draw() {
     NPCData.forEach(drawNPC);
 
     if (gameState == "quest") { currentQuest.draw(); }
+    if (gameState == "profile") { player.drawProfile(); }
 }

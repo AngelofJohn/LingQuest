@@ -2,13 +2,15 @@ class Quest {
     constructor(id) {
         Object.assign(this, questData[id])
         this.currentQuestion = -1;
+        this.skippable = true;
 
         // Buttons
         this.buttons = {
             "decline": new Button([columnCount-5, rowCount-3], "Decline", colors.red, 3),
             "quit": new Button([columnCount-5, rowCount-3], "Quit", colors.red, 3),
             "accept": new Button([2, rowCount-3], "Accept", colors.green, 3),
-            "submit": new Button([2, rowCount-3], "Submit", colors.green, 3)
+            "submit": new Button([2, rowCount-3], "Submit", colors.green, 3),
+            "skip": new Button([6, rowCount-3], "Skip", colors.green, 3)
         }
 
         this.buttons["decline"].action = () => { gameState = "default"; }
@@ -26,6 +28,11 @@ class Quest {
                 player.health = max(0, player.health - 1);
             }
             player.answer = '';
+        }
+        this.buttons["skip"].action = () => {
+            this.currentQuestion += 1;
+            this.skippable = false;
+            if (this.currentQuestion < this.questions.length) { this.setupQuestion(); }
         }
     }
 
@@ -70,6 +77,10 @@ class Quest {
         }
         else {
             this.buttons["submit"].draw();
+            if (this.skippable) {
+                // TODO: check if the skipper is equipped
+                this.buttons["skip"].draw();
+            }
             this.buttons["quit"].draw();
 
             textAlign(LEFT, BASELINE);

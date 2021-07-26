@@ -33,6 +33,7 @@ function drawSprite(inMap, atlas, inAtlas, res=16) {
 }
 
 function drawOverlay() {
+    // Draw a semi-transparent overlay and tiles over it
     fill('#000a');
     rect(0, 0, columnCount*tileSize, rowCount*tileSize);
     for (var i = 1; i < rowCount - 1; i++) {
@@ -43,13 +44,16 @@ function drawOverlay() {
 }
 
 function drawNPC(object) {
-    drawSprite([object.position[0], object.position[1] + 1], skinsAtlas, [object.skin, 1], 4);
-    drawSprite(object.position, skinsAtlas, [object.skin, 0], 4);
+	if (object.map == mapIndex) {
+	    drawSprite([object.position[0], object.position[1] + 1], skinsAtlas, [object.skin, 1], 4);
+	    drawSprite(object.position, skinsAtlas, [object.skin, 0], 4);
 
-    fill(colors.black);
-    rect(object.position[0] * tileSize, (object.position[1] - 3/4) * tileSize, tileSize, tileSize/2);
-    textAlign(CENTER, CENTER);
-    fill(colors.white);
-    textSize(tileSize / 3);
-    text(object.name, (object.position[0] + 1/2) * tileSize, (object.position[1] - 1/2) * tileSize);
+        // Draw the NPC name on a black background
+	    fill(colors.black);
+	    rect(object.position[0] * tileSize, (object.position[1] - 3/4) * tileSize, tileSize, tileSize/2);
+	    textAlign(CENTER, CENTER);
+	    fill(colors.white);
+	    textSize(tileSize / 3);
+	    text(object.name, (object.position[0] + 1/2) * tileSize, (object.position[1] - 1/2) * tileSize);
+	}
 }

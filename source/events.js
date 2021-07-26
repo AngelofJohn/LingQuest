@@ -5,9 +5,10 @@ function windowResized() {
 
 function mouseClicked() {
     const mousePosition = [
-        mouseX - horizontalMargin,
-        mouseY - verticalMargin + topRows*tileSize
+        mouseX - horizontalMargin/2,
+        mouseY - verticalMargin/2 - topRows*tileSize
     ];
+    // console.log(mousePosition[0] / tileSize, mousePosition[1] / tileSize);
     if (gameState === "default") {
         NPCData.forEach(
             object => { if (containsNPCPoint(object, mousePosition)) {
@@ -40,7 +41,12 @@ function keyTyped() {
 }
 
 function keyPressed() {
+	if (gameState === "default" && keyCode == BACKSPACE) {
+        // Move to the next map
+		mapIndex = (mapIndex + 1) % 2;
+	}
     if (gameState === "quest" && currentQuest.type === "input" && keyCode == BACKSPACE) {
+        // Erase the last caracter of the input box
         player.answer = player.answer.slice(0, -1);
     }
     if (gameState === "quest" && currentQuest.buttons["submit"].isDrawn && keyCode == ENTER) {

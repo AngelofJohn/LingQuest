@@ -13,7 +13,10 @@ const lookupTable = {
     "rock": [2, 15],
 }
 
-const mapData = [
+let mapData = [];
+let mapIndex = 0;
+
+mapData[0] = [
     ["grass", "grass", "rock", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
     ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "flowers", "grass"],
     ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "flowers", "water TL", "water TR", "grass", "grass", "grass", "grass", "grass", "grass"],
@@ -25,5 +28,20 @@ const mapData = [
     ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
     ["grass", "grass", "grass", "flowers", "grass", "grass", "grass", "grass", "flowers", "grass", "flowers", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
     ["grass", "grass", "grass", "grass", "grass", "grass", "flowers", "rock", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+];
+
+mapData[1] = [
+    ["water TL", "water T", "water TR", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["water L", "water", "water R", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["water BL", "water B", "water BR", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "grass", "rock", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "flowers", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "flowers", "flowers", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "rock", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+    ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
     ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
 ];
