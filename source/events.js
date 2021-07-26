@@ -8,7 +8,6 @@ function mouseClicked() {
         mouseX - horizontalMargin/2,
         mouseY - verticalMargin/2 - topRows*tileSize
     ];
-    // console.log(mousePosition[0] / tileSize, mousePosition[1] / tileSize);
     if (gameState === "default") {
         NPCData.forEach(
             object => { if (containsNPCPoint(object, mousePosition)) {
@@ -25,6 +24,10 @@ function mouseClicked() {
             if (button.contains(mousePosition) && button.isDrawn) { button.runAction(); }
         }
     }
+    if (gameState === "profile") {
+        const button = player.buttons["quit"];
+        if (button.contains(mousePosition) && button.isDrawn) { button.runAction(); }
+    }
     if (gameState === "quest" && currentQuest.questType === "multipleChoice") {
         for (let index = 0; index < currentQuest.proposedAnswers.length; index++) {
             if (Math.floor(mousePosition[1] / tileSize) == 5 + index) { player.answer = currentQuest.proposedAnswers[index]; }
@@ -33,7 +36,7 @@ function mouseClicked() {
 }
 
 function keyTyped() {
-    if (currentQuest.type === "input" && isLetter(key)) {
+    if (gameState === "quest" && currentQuest.type === "input" && isLetter(key)) {
         player.answer = player.answer + key;
         player.answer = player.answer.slice(0,
                 currentQuest.solutions[currentQuest.currentQuestion].length);
@@ -41,15 +44,19 @@ function keyTyped() {
 }
 
 function keyPressed() {
-	if (gameState === "default" && keyCode == BACKSPACE) {
+    if (key.toUpperCase() === "P") {
+        if (gameState === "default") gameState = "profile";
+        else if (gameState === "profile") gameState = "default";
+    }
+	if (gameState === "default" && key.toUpperCase() === "M") {
         // Move to the next map
-		mapIndex = (mapIndex + 1) % 2;
+        mapIndex = (mapIndex + 1) % 2;
 	}
-    if (gameState === "quest" && currentQuest.type === "input" && keyCode == BACKSPACE) {
+    if (gameState === "quest" && currentQuest.type === "input" && keyCode === BACKSPACE) {
         // Erase the last caracter of the input box
         player.answer = player.answer.slice(0, -1);
     }
-    if (gameState === "quest" && currentQuest.buttons["submit"].isDrawn && keyCode == ENTER) {
+    if (gameState === "quest" && currentQuest.buttons["submit"].isDrawn && keyCode === ENTER) {
         currentQuest.buttons["submit"].runAction();
     }
 }

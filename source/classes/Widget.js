@@ -10,7 +10,6 @@ class Widget {
     contains(position) {
         const x = position[0] / tileSize;
         const y = position[1] / tileSize;
-        console.log(y);
         return x >= this.position[0] && x <= this.position[0] + this.width
             && y >= this.position[1] && y <= this.position[1] + this.heigth;
     }
