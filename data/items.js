@@ -1,6 +1,6 @@
-const itemData = [
-    {
-        "id": "skipper",
-        "name": "Sword of Everlasting Skipping"
-    },
-];
+const itemData = {
+    "skipper": {
+		"name": "Sword of Everlasting Skipping",
+		"position": [2, 0]
+    }
+};
