@@ -49,7 +49,8 @@ class Player {
                 strokeWeight(1);
                 rect((i + 8) * tileSize, (j + 4) * tileSize, tileSize, tileSize);
 				if (i*8 + j < this.inventory.length) {
-			        // TODO: draw items in inventory							
+					let itemPos = itemData[this.inventory[i*8 + j]].position;
+					drawSprite([(i + 8), (j + 4)], UIAtlas, itemPos, 8);
 				}
             }
         }
