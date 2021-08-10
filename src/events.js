@@ -25,6 +25,16 @@ function mouseClicked() {
         }
     }
     if (gameState === "profile") {
+		for (const item of player.inventory) {
+			const index = player.inventory.indexOf(item);
+			if (1 == 1) {
+				// TODO: check mousePosition
+				player.inventory.splice(index, 1);
+				player.equipment.push(item);
+			}
+		}
+		// TODO: allow items to be unequiped
+
         const button = player.buttons["quit"];
         if (button.contains(mousePosition) && button.isDrawn) { button.runAction(); }
     }
