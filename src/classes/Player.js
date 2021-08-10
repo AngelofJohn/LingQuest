@@ -8,8 +8,8 @@ class Player {
         this.level = 1;
         this.name = "John";
 
-        this.inventory = [];
-        this.equipment = ["skipper"];
+        this.inventory = ["skipper"];
+        this.equipment = [];
         this.completedQuests = [];
 
         this.answer = '';
