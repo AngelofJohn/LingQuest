@@ -27,8 +27,11 @@ function mouseClicked() {
     if (gameState === "profile") {
 		for (const item of player.inventory) {
 			const index = player.inventory.indexOf(item);
-			if (1 == 1) {
-				// TODO: check mousePosition
+			const i = index % 8;
+			const j = Math.floor(index / 8);
+			const x = 8 + i;
+			const y = 4 + j;
+			if (containsTileMouse(x, y, mousePosition[0], mousePosition[1])) {
 				player.inventory.splice(index, 1);
 				player.equipment.push(item);
 			}
