@@ -25,6 +25,13 @@ function containsNPCPoint(object, position) {
         && object.position[1] + 2 >= y;
 }
 
+function containsTileMouse(tileX, tileY, mouseX, mouseY) {
+	const x = mouseX / tileSize;
+	const y = mouseY / tileSize;
+	return tileX <= x && tileX + 1 >= x
+		&& tileY <= y && tileY + 1 >= y;
+}
+
 // Drawing
 
 function drawSprite(inMap, atlas, inAtlas, res=16) {
