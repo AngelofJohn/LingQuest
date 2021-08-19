@@ -67,6 +67,14 @@ class Player {
         noStroke();
         this.buttons["quit"].draw();
     }
+
+	drawGameOver() {
+		drawOverlay();
+		textAlign(CENTER, CENTER);
+		textSize(tileSize);
+		fill(colors.black);
+		text("Game Over", screenWidth/2, screenHeight/2);
+	}
 }
 
 const player = new Player();

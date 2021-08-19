@@ -27,6 +27,8 @@ function setup() {
 }
 
 function draw() {
+	if (player.health <= 0) { gameState = "game_over"; }
+
     fill(colors.grey);
     rect(0, 0, windowWidth, windowHeight)
     translate(horizontalMargin/2, verticalMargin/2);
@@ -58,4 +60,5 @@ function draw() {
 
     if (gameState == "quest") { currentQuest.draw(); }
     if (gameState == "profile") { player.drawProfile(); }
+	if (gameState == "game_over") { player.drawGameOver(); }
 }

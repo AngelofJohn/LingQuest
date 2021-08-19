@@ -9,5 +9,5 @@
 ## To do
 
 - [ ] change the cursor
-- [ ] implement a Game Over state
+- [x] implement a Game Over state
 - [ ] add a quest log
