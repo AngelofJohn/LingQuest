@@ -1,6 +1,7 @@
 class Quest {
     constructor(id) {
         Object.assign(this, questData[id])
+		this.id = id;
         this.currentQuestion = -1;
         this.skippable = true;
 
@@ -73,6 +74,7 @@ class Quest {
                 player.experience -= 100 * player.level*20;
                 player.level += 1;
             }
+            player.completedQuests.push(this.id);
             this.drawTermination();
         }
         else {

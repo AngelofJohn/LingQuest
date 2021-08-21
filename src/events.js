@@ -58,9 +58,17 @@ function keyTyped() {
 
 function keyPressed() {
     if (key.toUpperCase() === "P") {
-        if (gameState === "default") gameState = "profile";
-        else if (gameState === "profile") gameState = "default";
+        if (gameState === "default")
+        	gameState = "profile";
+        else if (gameState === "profile")
+        	gameState = "default";
     }
+	if (key.toUpperCase() === "L") {
+		if (gameState === "default")
+			gameState = "quest_log";
+		else if (gameState === "quest_log")
+			gameState = "default";
+	}
 	if (gameState === "default" && key.toUpperCase() === "M") {
         // Move to the next map
         mapIndex = (mapIndex + 1) % 2;

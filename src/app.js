@@ -61,4 +61,5 @@ function draw() {
 	if (gameState == "quest") { currentQuest.draw(); }
 	if (gameState == "profile") { player.drawProfile(); }
 	if (gameState == "game_over") { player.drawGameOver(); }
+	if (gameState == "quest_log") { player.drawQuestLog(); }
 }

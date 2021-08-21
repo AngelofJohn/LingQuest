@@ -75,6 +75,12 @@ class Player {
 		fill(colors.black);
 		text("Game Over", screenWidth/2, screenHeight/2);
 	}
+
+	drawQuestLog() {
+		drawOverlay();
+		// TODO: draw the quest log
+		// this.completedQuests
+	}
 }
 
 const player = new Player();
