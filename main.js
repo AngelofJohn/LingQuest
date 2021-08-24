@@ -2,16 +2,19 @@
 // All rights reserved
 
 import {
+  ATLAS_UI,
   CANVAS, COLORS, CONTEXT,
   PLAYER, MAX_HEALTH,
   NUM_OF_COLUMNS, NUM_OF_TOPROWS
 } from './src/constants.js'
 
 import { screen, setDimensions, sizeofTile } from './src/dimensions.js'
-import { drawSprite } from './src/utils/draw.js'
+import { DATA_NPC } from './src/data/NPCs.js'
+import { drawMap, drawNPC, drawSprite } from './src/utils/draw.js'
 
-const atlasUI = new window.Image()
-atlasUI.src = './assets/sprites/user_interface.png'
+let currentMap = 0
+export function gotoNextMap() { currentMap = (currentMap + 1) % 2 }
+// let currentState
 
 function step (timestamp) {
   // Draw the background
@@ -26,19 +29,24 @@ function step (timestamp) {
   CONTEXT.fillRect(0, -NUM_OF_TOPROWS * sizeofTile,
     screen.width, NUM_OF_TOPROWS * sizeofTile)
 
+  CONTEXT.fillStyle = COLORS.yellow
+  CONTEXT.font = `${sizeofTile}px OpenSansPX`
   CONTEXT.textAlign = 'right'
   CONTEXT.textBaseline = 'middle'
-  CONTEXT.fillStyle = COLORS.yellow
   CONTEXT.fillText(`${PLAYER.experience}XP / Level ${PLAYER.level}`,
     (NUM_OF_COLUMNS - 1) * sizeofTile, -sizeofTile / 2)
 
   for (let i = 1; i <= MAX_HEALTH; i++) {
-    drawSprite(i, -1, atlasUI, (PLAYER.health >= i) ? 0 : 1, 0)
+    drawSprite(i, -1, ATLAS_UI, (PLAYER.health >= i) ? 0 : 1, 0)
   }
 
   // Draw the map
   CONTEXT.fillStyle = COLORS.green
-  CONTEXT.fillRect(0, 0, screen.width, screen.height)
+  // CONTEXT.fillRect(0, 0, screen.width, screen.height)
+  drawMap(currentMap)
+  DATA_NPC.forEach((NPC) => {
+    if (NPC.map === currentMap) { drawNPC(NPC) }
+  })
 
   CONTEXT.resetTransform()
   window.requestAnimationFrame(step)
@@ -46,7 +54,5 @@ function step (timestamp) {
 
 window.onload = (event) => {
   setDimensions()
-  console.log(`Hello ${PLAYER.name}!`)
-  // Draw the game
   window.requestAnimationFrame(step)
 }

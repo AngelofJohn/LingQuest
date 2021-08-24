@@ -31,3 +31,13 @@ export const PLAYER = {
   level: 1,
   name: 'John'
 }
+
+// Atlases
+export const ATLAS_MAP = new window.Image()
+export const ATLAS_SKIN = new window.Image()
+export const ATLAS_UI = new window.Image()
+
+ATLAS_MAP.src = './assets/sprites/terrain.png'
+ATLAS_SKIN.src = './assets/sprites/skins.png'
+ATLAS_UI.src = './assets/sprites/user_interface.png'
+

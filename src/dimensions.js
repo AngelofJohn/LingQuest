@@ -27,7 +27,6 @@ export function setDimensions () {
 
   sizeofTile = screen.width / NUM_OF_COLUMNS
   sizeofPixel = sizeofTile / SIZEOF_SPRITE
-  CONTEXT.font = `${sizeofTile}px OpenSansPX`
 }
 
 window.onresize = setDimensions
