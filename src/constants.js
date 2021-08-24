@@ -1,3 +1,8 @@
+// src/constants.js
+// All rights reserved
+
+export const SIZEOF_SPRITE = 8
+
 export const CANVAS = document.getElementById('game')
 export const CONTEXT = CANVAS.getContext('2d')
 
@@ -13,4 +18,16 @@ export const COLORS = {
   green: '#7a6',
   red: '#f54',
   yellow: '#ff0'
+}
+
+export const MAX_HEALTH = 5
+export const PLAYER = {
+  answer: '',
+  balance: 0.0,
+  completedQuests: [],
+  experience: 0,
+  health: MAX_HEALTH,
+  inventory: ['skipper'],
+  level: 1,
+  name: 'John'
 }
