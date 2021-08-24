@@ -18,7 +18,7 @@ export const DATA_NPC = [
     ]
   },
   {
-    position: [4, 6],
+    position: [6, 6],
     map: 0,
     name: 'Sam',
     skin: 3,

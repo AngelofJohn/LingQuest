@@ -12,6 +12,7 @@ export default class GameState {
 
   drawScene () {
     drawOverlay(this.title)
+    this.widgets.forEach(widget => widget.draw())
     this.draw()
   }
 }
