@@ -13,7 +13,7 @@ import { DATA_NPC } from './src/data/NPCs.js'
 import { drawMap, drawNPC, drawSprite } from './src/utils/draw.js'
 
 let currentMap = 0
-export function gotoNextMap() { currentMap = (currentMap + 1) % 2 }
+export function gotoNextMap () { currentMap = (currentMap + 1) % 2 }
 // let currentState
 
 function step (timestamp) {
@@ -41,8 +41,6 @@ function step (timestamp) {
   }
 
   // Draw the map
-  CONTEXT.fillStyle = COLORS.green
-  // CONTEXT.fillRect(0, 0, screen.width, screen.height)
   drawMap(currentMap)
   DATA_NPC.forEach((NPC) => {
     if (NPC.map === currentMap) { drawNPC(NPC) }
