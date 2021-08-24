@@ -1,4 +1,13 @@
 const questData = {
+	"test": {
+		"title": "Test Quest",
+		"introduction": "",
+		"questType": "input",
+		"questions": [ "Type a" ],
+		"solutions": "a",
+		"termination": "",
+		"experience": 0
+	},
     "baker": {
         "title": "A Baker's Dozen",
         "introduction": "Hello traveller, oh don't worry about me, I'm trying to bake bread for the upcoming festival but it seems that I don't have enough time to get it all ready in time. I know this might be a big ask but I am wondering if you would be able to help me? I am willing to reward you accordingly.",

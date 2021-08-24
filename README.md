@@ -11,5 +11,5 @@
 
 - [ ] change the cursor
 - [x] implement a Game Over state
-- [ ] implement a Quest Log stae
-- [ ] add a quest log
+- [x] implement a Quest Log stae
+- [ ] let the NPCs have multiple quests

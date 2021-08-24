@@ -12,8 +12,10 @@ function mouseClicked() {
         NPCData.forEach(
             object => { if (containsNPCPoint(object, mousePosition)) {
                     const questType = questData[object.quest].questType;
-                    if (questType === "input") { currentQuest = new InputQuest(object.quest); }
-                    if (questType === "multipleChoice") { currentQuest = new MCQuest(object.quest); }
+                    if (questType === "input")
+                    	currentQuest = new InputQuest(object.quest);
+                    if (questType === "multipleChoice")
+                    	currentQuest = new MCQuest(object.quest);
                     gameState = "quest";
                 }
             }
@@ -21,7 +23,8 @@ function mouseClicked() {
     }
     if (gameState === "quest") {
         for (const [_, button] of Object.entries(currentQuest.buttons)) {
-            if (button.contains(mousePosition) && button.isDrawn) { button.runAction(); }
+            if (button.contains(mousePosition) && button.isDrawn)
+            	button.runAction();
         }
     }
     if (gameState === "profile") {
@@ -37,13 +40,16 @@ function mouseClicked() {
 			}
 		}
 		// TODO: allow items to be unequiped
-
+	}
+	if (gameState === "profile" || gameState === "quest_log") {
         const button = player.buttons["quit"];
-        if (button.contains(mousePosition) && button.isDrawn) { button.runAction(); }
+        if (button.contains(mousePosition) && button.isDrawn)
+        	button.runAction();
     }
     if (gameState === "quest" && currentQuest.questType === "multipleChoice") {
         for (let index = 0; index < currentQuest.proposedAnswers.length; index++) {
-            if (Math.floor(mousePosition[1] / tileSize) == 5 + index) { player.answer = currentQuest.proposedAnswers[index]; }
+            if (Math.floor(mousePosition[1] / tileSize) == 5 + index)
+            	player.answer = currentQuest.proposedAnswers[index];
         }
     }
 }

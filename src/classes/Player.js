@@ -21,7 +21,7 @@ class Player {
 
     dump() { } // TODO
     load() { } // TODO
-    
+
     drawProfile() {
     	drawOverlay();
 
@@ -78,8 +78,18 @@ class Player {
 
 	drawQuestLog() {
 		drawOverlay();
-		// TODO: draw the quest log
-		// this.completedQuests
+		textAlign(LEFT, BASELINE);
+		fill(colors.black);
+
+		textSize(tileSize);
+		text("Quest Log", 2*tileSize, 3*tileSize);
+
+		for (var i = 0; i < this.completedQuests.length; i++) {
+			textSize(tileSize / 2);
+			text(this.completedQuests[i].title, 2*tileSize, (5 + i)*tileSize);
+		}
+
+		this.buttons["quit"].draw();
 	}
 }
 
