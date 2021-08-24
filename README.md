@@ -10,6 +10,11 @@
 ## To do
 
 - [ ] change the cursor
-- [x] implement a Game Over state
-- [x] implement a Quest Log stae
 - [ ] let the NPCs have multiple quests
+- [ ] refactor the widget class
+- [ ] refactor the game states
+  - [x] Game Over
+  - [ ] Profile / inventory
+  - [ ] Quest Log
+  - [ ] Quest selection
+  - [ ] Quest
