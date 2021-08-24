@@ -1,8 +1,11 @@
-const rowCount = 12
-const columnCount = 18
-const topRows = 1
+export const CANVAS = document.getElementById('game')
+export const CONTEXT = CANVAS.getContext('2d')
 
-const colors = {
+export const NUM_OF_ROWS = 12
+export const NUM_OF_COLUMNS = 18
+export const NUM_OF_TOPROWS = 1
+
+export const COLORS = {
   black: '#000',
   grey: '#444',
   lightGrey: '#bbb',

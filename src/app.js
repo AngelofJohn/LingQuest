@@ -1,8 +1,3 @@
-// Dimensions
-let screenWidth, screenHeight;
-let horizontalMargin, verticalMargin;
-let tileWidth, tileHeight;
-
 // Sprites
 let spriteAtlas, skinsAtlas, UIAtlas;
 
