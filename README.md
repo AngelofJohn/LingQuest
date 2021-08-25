@@ -20,6 +20,4 @@
   - [ ] Quest Log
   - [ ] Quest selection
   - [ ] Quest
-- [ ] `NUMBER_OF_COLUMNS` -> `NUMBER_OF_COLS`
-- [ ] `/dimensions` -> `/utils/dimensions`
 - [ ] `water TL` -> `water-TopLeft` etc.

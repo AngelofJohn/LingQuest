@@ -1,10 +1,10 @@
 // src/cls/Widget.js
 // All rights reserved
 
-import { ATLAS_UI, COLORS, CONTEXT } from '../constants.js'
+import { ATLAS_UI, COLORS, CONTEXT } from '../utils/constants.js'
 import { LOOKUP_UI } from '../data/UI.js'
 import { drawSprite } from '../utils/draw.js'
-import { sizeofTile } from '../dimensions.js'
+import { sizeofTile } from '../utils/dimensions.js'
 
 export class Widget {
   constructor (position, width, heigth = 1) {

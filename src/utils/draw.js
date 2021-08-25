@@ -3,12 +3,12 @@
 
 import {
   ATLAS_SKIN, ATLAS_MAP, ATLAS_UI, COLORS, CONTEXT,
-  NUM_OF_COLUMNS, NUM_OF_ROWS, SIZEOF_SPRITE
-} from '../constants.js'
+  NUM_OF_COLS, NUM_OF_ROWS, SIZEOF_SPRITE
+} from './constants.js'
 
 import { DATA_MAP, LOOKUP_MAP } from '../data/maps.js'
 import { LOOKUP_UI } from '../data/UI.js'
-import { sizeofTile } from '../dimensions.js'
+import { sizeofTile } from '../utils/dimensions.js'
 
 export function drawSprite (cx, cy, atlas, inAtlas) {
   CONTEXT.drawImage(atlas,
@@ -20,7 +20,7 @@ export function drawSprite (cx, cy, atlas, inAtlas) {
 
 export function drawMap (mapIndex) {
   for (let i = 0; i < NUM_OF_ROWS; i++) {
-    for (let j = 0; j < NUM_OF_COLUMNS; j++) {
+    for (let j = 0; j < NUM_OF_COLS; j++) {
       const inAtlas = LOOKUP_MAP[DATA_MAP[mapIndex][i][j]]
       drawSprite(j, i, ATLAS_MAP, inAtlas)
     }
@@ -51,11 +51,11 @@ export function drawNPC (NPC) {
 
 export function drawOverlay (title) {
   CONTEXT.fillStyle = '#000a'
-  CONTEXT.fillRect(0, 0, NUM_OF_COLUMNS * sizeofTile, NUM_OF_ROWS * sizeofTile)
+  CONTEXT.fillRect(0, 0, NUM_OF_COLS * sizeofTile, NUM_OF_ROWS * sizeofTile)
 
   // Draw center
   for (let i = 2; i < NUM_OF_ROWS - 2; i++) {
-    for (let j = 2; j < NUM_OF_COLUMNS - 2; j++) {
+    for (let j = 2; j < NUM_OF_COLS - 2; j++) {
       drawSprite(j, i, ATLAS_UI, LOOKUP_UI.overlay)
     }
   }
@@ -63,18 +63,18 @@ export function drawOverlay (title) {
   // Draw sides
   for (let i = 2; i < NUM_OF_ROWS - 2; i++) {
     drawSprite(1, i, ATLAS_UI, LOOKUP_UI['overlay L'])
-    drawSprite(NUM_OF_COLUMNS - 2, i, ATLAS_UI, LOOKUP_UI['overlay R'])
+    drawSprite(NUM_OF_COLS - 2, i, ATLAS_UI, LOOKUP_UI['overlay R'])
   }
-  for (let i = 2; i < NUM_OF_COLUMNS - 2; i++) {
+  for (let i = 2; i < NUM_OF_COLS - 2; i++) {
     drawSprite(i, 1, ATLAS_UI, LOOKUP_UI['overlay T'])
     drawSprite(i, NUM_OF_ROWS - 2, ATLAS_UI, LOOKUP_UI['overlay B'])
   }
 
   // Draw corners
   drawSprite(1, 1, ATLAS_UI, LOOKUP_UI['overlay TL'])
-  drawSprite(NUM_OF_COLUMNS - 2, 1, ATLAS_UI, LOOKUP_UI['overlay TR'])
+  drawSprite(NUM_OF_COLS - 2, 1, ATLAS_UI, LOOKUP_UI['overlay TR'])
   drawSprite(1, NUM_OF_ROWS - 2, ATLAS_UI, LOOKUP_UI['overlay BL'])
-  drawSprite(NUM_OF_COLUMNS - 2, NUM_OF_ROWS - 2,
+  drawSprite(NUM_OF_COLS - 2, NUM_OF_ROWS - 2,
     ATLAS_UI, LOOKUP_UI['overlay BR'])
 
   if (title !== '') {

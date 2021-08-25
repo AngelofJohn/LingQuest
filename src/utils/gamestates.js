@@ -1,13 +1,13 @@
 // gamestates.js
 // All rights reserved
 
-import { COLORS, NUM_OF_COLUMNS, NUM_OF_ROWS } from './constants.js'
-import GameState from './cls/GameState.js'
-import { Button } from './cls/Widget.js'
+import { COLORS, NUM_OF_COLS, NUM_OF_ROWS } from './constants.js'
+import GameState from '../cls/GameState.js'
+import { Button } from '../cls/Widget.js'
 
 // BTN_PRIM_POS
 // BTN_SCND_POS
-const BTN_LAST_POS = [NUM_OF_COLUMNS - 5, NUM_OF_ROWS - 3]
+const BTN_LAST_POS = [NUM_OF_COLS - 5, NUM_OF_ROWS - 3]
 
 export const GAMESTATE_QUEST_LOG = new GameState(
   'Quest Log',

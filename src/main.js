@@ -5,13 +5,13 @@ import {
   ATLAS_UI,
   CANVAS, COLORS, CONTEXT,
   PLAYER, MAX_HEALTH,
-  NUM_OF_COLUMNS, NUM_OF_TOPROWS
-} from './src/constants.js'
+  NUM_OF_COLS, NUM_OF_TOPROWS
+} from './utils/constants.js'
 
-import { DATA_NPC } from './src/data/NPCs.js'
-import { GAMESTATE_QUEST_LOG } from './src/gamestates.js'
-import { drawMap, drawNPC, drawSprite } from './src/utils/draw.js'
-import { screen, setDimensions, sizeofTile } from './src/dimensions.js'
+import { DATA_NPC } from './data/NPCs.js'
+import { GAMESTATE_QUEST_LOG } from './utils/gamestates.js'
+import { drawMap, drawNPC, drawSprite } from './utils/draw.js'
+import { screen, setDimensions, sizeofTile } from './utils/dimensions.js'
 
 let currentMap = 0
 export function gotoNextMap () { currentMap = (currentMap + 1) % 2 }
@@ -35,7 +35,7 @@ function step (timestamp) {
   CONTEXT.textAlign = 'right'
   CONTEXT.textBaseline = 'middle'
   CONTEXT.fillText(`${PLAYER.experience}XP / Level ${PLAYER.level}`,
-    (NUM_OF_COLUMNS - 1) * sizeofTile, -sizeofTile / 2)
+    (NUM_OF_COLS - 1) * sizeofTile, -sizeofTile / 2)
 
   for (let i = 1; i <= MAX_HEALTH; i++) {
     drawSprite(i, -1, ATLAS_UI, (PLAYER.health >= i) ? 0 : 1, 0)
