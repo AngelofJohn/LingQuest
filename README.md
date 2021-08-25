@@ -9,12 +9,17 @@
 
 ## To do
 
+- [ ] fix hearts
 - [ ] change the cursor
 - [ ] let the NPCs have multiple quests
-- [ ] refactor the widget class
+- [x] refactor the widget class
 - [ ] refactor the game states
+  - [ ] Implement `switchtoGameState`
   - [x] Game Over
   - [ ] Profile / inventory
   - [ ] Quest Log
   - [ ] Quest selection
   - [ ] Quest
+- [ ] `NUMBER_OF_COLUMNS` -> `NUMBER_OF_COLS`
+- [ ] `/dimensions` -> `/utils/dimensions`
+- [ ] `water TL` -> `water-TopLeft` etc.

@@ -8,9 +8,10 @@ import {
   NUM_OF_COLUMNS, NUM_OF_TOPROWS
 } from './src/constants.js'
 
-import { screen, setDimensions, sizeofTile } from './src/dimensions.js'
 import { DATA_NPC } from './src/data/NPCs.js'
+import { GAMESTATE_QUEST_LOG } from './src/gamestates.js'
 import { drawMap, drawNPC, drawSprite } from './src/utils/draw.js'
+import { screen, setDimensions, sizeofTile } from './src/dimensions.js'
 
 let currentMap = 0
 export function gotoNextMap () { currentMap = (currentMap + 1) % 2 }
@@ -46,6 +47,8 @@ function step (timestamp) {
     if (NPC.map === currentMap) { drawNPC(NPC) }
   })
 
+  GAMESTATE_QUEST_LOG.draw()
+
   CONTEXT.resetTransform()
   window.requestAnimationFrame(step)
 }
@@ -54,3 +57,4 @@ window.onload = (event) => {
   setDimensions()
   window.requestAnimationFrame(step)
 }
+

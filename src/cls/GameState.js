@@ -4,15 +4,15 @@
 import { drawOverlay } from '../utils/draw.js'
 
 export default class GameState {
-  constructor (title, widgets, draw) {
+  constructor (title, widgets, draw_) {
     this.title = title
     this.widgets = widgets
-    this.draw = draw
+    this.draw_ = draw_
   }
 
-  drawScene () {
+  draw () {
     drawOverlay(this.title)
     this.widgets.forEach(widget => widget.draw())
-    this.draw()
+    this.draw_()
   }
 }

@@ -6,9 +6,9 @@ import {
   NUM_OF_COLUMNS, NUM_OF_ROWS, SIZEOF_SPRITE
 } from '../constants.js'
 
-import { sizeofTile } from '../dimensions.js'
 import { DATA_MAP, LOOKUP_MAP } from '../data/maps.js'
 import { LOOKUP_UI } from '../data/UI.js'
+import { sizeofTile } from '../dimensions.js'
 
 export function drawSprite (cx, cy, atlas, inAtlas) {
   CONTEXT.drawImage(atlas,
@@ -77,10 +77,12 @@ export function drawOverlay (title) {
   drawSprite(NUM_OF_COLUMNS - 2, NUM_OF_ROWS - 2,
     ATLAS_UI, LOOKUP_UI['overlay BR'])
 
-  // Draw title
-  CONTEXT.fillStyle = COLORS.black
-  CONTEXT.font = `${sizeofTile}px OpenSansPX`
-  CONTEXT.textAlign = 'left'
-  CONTEXT.textBaseline = 'middle'
-  CONTEXT.fillText(title, 2 * sizeofTile, 2 * sizeofTile)
+  if (title !== '') {
+    // Draw title
+    CONTEXT.fillStyle = COLORS.black
+    CONTEXT.font = `${sizeofTile}px OpenSansPX`
+    CONTEXT.textAlign = 'left'
+    CONTEXT.textBaseline = 'middle'
+    CONTEXT.fillText(title, 2 * sizeofTile, 2 * sizeofTile)
+  }
 }
