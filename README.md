@@ -14,7 +14,8 @@
 - [ ] let the NPCs have multiple quests
 - [x] refactor the widget class
 - [ ] refactor the game states
-  - [ ] Implement `switchtoGameState`
+  - [ ] change name to `overlay`, `page` or something better
+  - [x] Implement `switchtoGameState`
   - [x] Game Over
   - [ ] Profile / inventory
   - [ ] Quest Log

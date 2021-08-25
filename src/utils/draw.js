@@ -81,8 +81,16 @@ export function drawOverlay (title) {
     // Draw title
     CONTEXT.fillStyle = COLORS.black
     CONTEXT.font = `${sizeofTile}px OpenSansPX`
-    CONTEXT.textAlign = 'left'
+    CONTEXT.textAlign = 'center'
     CONTEXT.textBaseline = 'middle'
-    CONTEXT.fillText(title, 2 * sizeofTile, 2 * sizeofTile)
+    CONTEXT.fillText(title, (NUM_OF_COLS / 2) * sizeofTile, 2 * sizeofTile)
   }
+}
+
+export function drawBodyText (text, indexofLine=1) {
+  CONTEXT.fillStyle = COLORS.black
+  CONTEXT.font = `${sizeofTile}px OpenSansPX`
+  CONTEXT.textAlign = 'left'
+  CONTEXT.textBaseline = 'middle'
+  CONTEXT.fillText(text, 2 * sizeofTile, (3 + indexofLine) * sizeofTile)
 }

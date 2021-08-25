@@ -9,13 +9,14 @@ import {
 } from './utils/constants.js'
 
 import { DATA_NPC } from './data/NPCs.js'
-import { GAMESTATE_QUEST_LOG } from './utils/gamestates.js'
+import { GAMESTATE_DEFAULT, GAMESTATE_QUESTLOG } from './utils/gameStates.js'
 import { drawMap, drawNPC, drawSprite } from './utils/draw.js'
 import { screen, setDimensions, sizeofTile } from './utils/dimensions.js'
 
+export let currentGameState = GAMESTATE_DEFAULT
 let currentMap = 0
 export function gotoNextMap () { currentMap = (currentMap + 1) % 2 }
-// let currentState
+export function switchtoGameState (gameState) { currentGameState = gameState }
 
 function step (timestamp) {
   // Draw the background
@@ -38,7 +39,7 @@ function step (timestamp) {
     (NUM_OF_COLS - 1) * sizeofTile, -sizeofTile / 2)
 
   for (let i = 1; i <= MAX_HEALTH; i++) {
-    drawSprite(i, -1, ATLAS_UI, (PLAYER.health >= i) ? 0 : 1, 0)
+    drawSprite(i, -1, ATLAS_UI, [(PLAYER.health >= i) ? 0 : 1, 0])
   }
 
   // Draw the map
@@ -47,7 +48,11 @@ function step (timestamp) {
     if (NPC.map === currentMap) { drawNPC(NPC) }
   })
 
-  GAMESTATE_QUEST_LOG.draw()
+  switch (currentGameState.id) {
+    case 'questlog':
+      GAMESTATE_QUESTLOG.draw()
+      break
+  }
 
   CONTEXT.resetTransform()
   window.requestAnimationFrame(step)
@@ -57,4 +62,3 @@ window.onload = (event) => {
   setDimensions()
   window.requestAnimationFrame(step)
 }
-

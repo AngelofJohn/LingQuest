@@ -4,7 +4,8 @@
 import { drawOverlay } from '../utils/draw.js'
 
 export default class GameState {
-  constructor (title, widgets, draw_) {
+  constructor (id, title, widgets, draw_) {
+    this.id = id
     this.title = title
     this.widgets = widgets
     this.draw_ = draw_
