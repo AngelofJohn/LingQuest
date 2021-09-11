@@ -21,3 +21,4 @@
   - [ ] Quest selection
   - [ ] Quest
 - [ ] `water TL` -> `water-TopLeft` etc.
+- [ ] Choose a consistent baseline (middle or alphabetic)

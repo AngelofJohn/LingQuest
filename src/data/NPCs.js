@@ -23,6 +23,7 @@ export const DATA_NPC = [
     name: 'Sam',
     skin: 3,
     quests: [
+      'baker',
       'fashionista'
     ]
   }

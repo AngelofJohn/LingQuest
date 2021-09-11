@@ -1,4 +1,4 @@
-const DATA_QUEST = {
+export const DATA_QUEST = {
   test: {
     title: 'Test Quest',
     introduction: '',

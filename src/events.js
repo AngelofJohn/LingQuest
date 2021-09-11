@@ -9,7 +9,7 @@ import {
 
 import {
   currentGameState, currentMap,
-  gotoNextMap, switchtoGameState
+  gotoNextMap, selectNPC, switchtoGameState
 } from './main.js'
 
 import { DATA_NPC } from './data/NPCs.js'
@@ -44,7 +44,7 @@ document.addEventListener('click', event => {
       for (let i = -1; i < 2; i++) {
         if (isMouseInTile(mouseX, mouseY, NPC.position[0], NPC.position[1] + i)) {
           switchtoGameState(GAMESTATE_QUEST_SELECTION)
-          // TODO: Set NPC to global current NPC
+          selectNPC(NPC)
         }
       }
     }

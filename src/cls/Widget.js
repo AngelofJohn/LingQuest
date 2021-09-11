@@ -1,7 +1,7 @@
 // src/cls/Widget.js
 // All rights reserved
 
-import { ATLAS_UI, COLORS, CONTEXT } from '../utils/constants.js'
+import { ATLAS_UI, COLORS, CONTEXT, NUMOF_COLS } from '../utils/constants.js'
 import { LOOKUP_UI } from '../data/UI.js'
 import { drawSprite } from '../utils/draw.js'
 import { sizeofTile } from '../utils/dimensions.js'
@@ -43,5 +43,26 @@ export class Button extends Widget {
       (this.position[0] + 3 / 2) * sizeofTile,
       (this.position[1] + 1 / 2) * sizeofTile
     )
+  }
+}
+
+export class List extends Widget {
+  constructor (positionY, items) {
+    super([3, positionY], NUMOF_COLS - 4, items.length)
+    this.items = items
+  }
+
+  draw () {
+    for (let i = 0; i < this.items.length; i++) {
+      const item = this.items[i]
+      CONTEXT.fillStyle = COLORS.black
+      CONTEXT.font = `${sizeofTile}px OpenSansPX`
+      CONTEXT.textAlign = 'left'
+      CONTEXT.textBaseline = 'alphabetic'
+      CONTEXT.fillText(`[${i === 0 ? 'x' : ' '}] ` + item,
+        2 * sizeofTile,
+        (this.position[1] + i) * sizeofTile
+      )
+    }
   }
 }

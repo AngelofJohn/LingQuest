@@ -14,13 +14,21 @@ import {
   GAMESTATE_QUEST_SELECTION
 } from './utils/gameStates.js'
 
+import { List } from './cls/Widget.js'
 import { DATA_NPC } from './data/NPCs.js'
+import { DATA_QUEST } from './data/quests.js'
 import { drawMap, drawNPC, drawSprite } from './utils/draw.js'
 import { screen, setDimensions, sizeofTile } from './utils/dimensions.js'
 
 export let currentGameState = GAMESTATE_DEFAULT
 export let currentMap = 0
+export let currentNPC
 export function gotoNextMap () { currentMap = (currentMap + 1) % 2 }
+export function selectNPC (NPC) {
+  currentNPC = NPC
+  GAMESTATE_QUEST_SELECTION.widgets[2] = new List(4,
+    currentNPC.quests.map(quest => DATA_QUEST[quest].title))
+}
 export function switchtoGameState (gameState) { currentGameState = gameState }
 
 function step (timestamp) {
