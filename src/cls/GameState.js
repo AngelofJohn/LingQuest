@@ -12,7 +12,7 @@ export default class GameState {
   }
 
   draw () {
-    drawOverlay(this.title)
+    if (this.id !== 'default') { drawOverlay(this.title) }
     this.widgets.forEach(widget => widget.draw())
     this.draw_()
   }

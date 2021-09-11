@@ -7,10 +7,10 @@ import { drawSprite } from '../utils/draw.js'
 import { sizeofTile } from '../utils/dimensions.js'
 
 export class Widget {
-  constructor (position, width, heigth = 1) {
+  constructor (position, width, height = 1) {
     this.position = position
     this.width = width
-    this.heigth = heigth
+    this.height = height
     this.isDrawn = false
   }
 }
@@ -25,6 +25,7 @@ export class Button extends Widget {
 
   draw () {
     this.isDrawn = true
+
     // Draw the button
     drawSprite(this.position[0] + 0, this.position[1],
       ATLAS_UI, LOOKUP_UI[`${this.style}Btn-Left`])
@@ -32,6 +33,7 @@ export class Button extends Widget {
       ATLAS_UI, LOOKUP_UI[`${this.style}Btn-Center`])
     drawSprite(this.position[0] + 2, this.position[1],
       ATLAS_UI, LOOKUP_UI[`${this.style}Btn-Right`])
+
     // Draw the text
     CONTEXT.fillStyle = COLORS.white
     CONTEXT.font = `${sizeofTile}px OpenSansPX`

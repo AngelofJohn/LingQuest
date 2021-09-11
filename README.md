@@ -9,10 +9,9 @@
 
 ## To do
 
-- [ ] fix hearts
+- [ ] Import a bold version of the font for titles
 - [ ] change the cursor
 - [ ] let the NPCs have multiple quests
-- [x] refactor the widget class
 - [ ] refactor the game states
   - [ ] change name to `overlay`, `page` or something better
   - [x] Implement `switchtoGameState`

@@ -3,7 +3,7 @@
 
 import {
   ATLAS_SKIN, ATLAS_MAP, ATLAS_UI, COLORS, CONTEXT,
-  NUM_OF_COLS, NUM_OF_ROWS, SIZEOF_SPRITE
+  NUMOF_COLS, NUMOF_ROWS, SIZEOF_SPRITE
 } from './constants.js'
 
 import { DATA_MAP, LOOKUP_MAP } from '../data/maps.js'
@@ -19,8 +19,8 @@ export function drawSprite (cx, cy, atlas, inAtlas) {
 }
 
 export function drawMap (mapIndex) {
-  for (let i = 0; i < NUM_OF_ROWS; i++) {
-    for (let j = 0; j < NUM_OF_COLS; j++) {
+  for (let i = 0; i < NUMOF_ROWS; i++) {
+    for (let j = 0; j < NUMOF_COLS; j++) {
       const inAtlas = LOOKUP_MAP[DATA_MAP[mapIndex][i][j]]
       drawSprite(j, i, ATLAS_MAP, inAtlas)
     }
@@ -51,43 +51,43 @@ export function drawNPC (NPC) {
 
 export function drawOverlay (title) {
   CONTEXT.fillStyle = '#000a'
-  CONTEXT.fillRect(0, 0, NUM_OF_COLS * sizeofTile, NUM_OF_ROWS * sizeofTile)
+  CONTEXT.fillRect(0, 0, NUMOF_COLS * sizeofTile, NUMOF_ROWS * sizeofTile)
 
   // Draw center
-  for (let i = 2; i < NUM_OF_ROWS - 2; i++) {
-    for (let j = 2; j < NUM_OF_COLS - 2; j++) {
+  for (let i = 2; i < NUMOF_ROWS - 2; i++) {
+    for (let j = 2; j < NUMOF_COLS - 2; j++) {
       drawSprite(j, i, ATLAS_UI, LOOKUP_UI.overlay)
     }
   }
 
   // Draw sides
-  for (let i = 2; i < NUM_OF_ROWS - 2; i++) {
+  for (let i = 2; i < NUMOF_ROWS - 2; i++) {
     drawSprite(1, i, ATLAS_UI, LOOKUP_UI['overlay L'])
-    drawSprite(NUM_OF_COLS - 2, i, ATLAS_UI, LOOKUP_UI['overlay R'])
+    drawSprite(NUMOF_COLS - 2, i, ATLAS_UI, LOOKUP_UI['overlay R'])
   }
-  for (let i = 2; i < NUM_OF_COLS - 2; i++) {
+  for (let i = 2; i < NUMOF_COLS - 2; i++) {
     drawSprite(i, 1, ATLAS_UI, LOOKUP_UI['overlay T'])
-    drawSprite(i, NUM_OF_ROWS - 2, ATLAS_UI, LOOKUP_UI['overlay B'])
+    drawSprite(i, NUMOF_ROWS - 2, ATLAS_UI, LOOKUP_UI['overlay B'])
   }
 
   // Draw corners
   drawSprite(1, 1, ATLAS_UI, LOOKUP_UI['overlay TL'])
-  drawSprite(NUM_OF_COLS - 2, 1, ATLAS_UI, LOOKUP_UI['overlay TR'])
-  drawSprite(1, NUM_OF_ROWS - 2, ATLAS_UI, LOOKUP_UI['overlay BL'])
-  drawSprite(NUM_OF_COLS - 2, NUM_OF_ROWS - 2,
+  drawSprite(NUMOF_COLS - 2, 1, ATLAS_UI, LOOKUP_UI['overlay TR'])
+  drawSprite(1, NUMOF_ROWS - 2, ATLAS_UI, LOOKUP_UI['overlay BL'])
+  drawSprite(NUMOF_COLS - 2, NUMOF_ROWS - 2,
     ATLAS_UI, LOOKUP_UI['overlay BR'])
 
   if (title !== '') {
     // Draw title
     CONTEXT.fillStyle = COLORS.black
-    CONTEXT.font = `${sizeofTile}px OpenSansPX`
+    CONTEXT.font = `${sizeofTile}px OpenSansPXBold`
     CONTEXT.textAlign = 'center'
     CONTEXT.textBaseline = 'middle'
-    CONTEXT.fillText(title, (NUM_OF_COLS / 2) * sizeofTile, 2 * sizeofTile)
+    CONTEXT.fillText(title, (NUMOF_COLS / 2) * sizeofTile, 2 * sizeofTile)
   }
 }
 
-export function drawBodyText (text, indexofLine=1) {
+export function drawBodyText (text, indexofLine = 1) {
   CONTEXT.fillStyle = COLORS.black
   CONTEXT.font = `${sizeofTile}px OpenSansPX`
   CONTEXT.textAlign = 'left'

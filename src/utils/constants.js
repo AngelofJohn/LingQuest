@@ -6,9 +6,9 @@ export const SIZEOF_SPRITE = 8
 export const CANVAS = document.getElementById('game')
 export const CONTEXT = CANVAS.getContext('2d')
 
-export const NUM_OF_ROWS = 12
-export const NUM_OF_COLS = 18
-export const NUM_OF_TOPROWS = 1
+export const NUMOF_ROWS = 12
+export const NUMOF_COLS = 18
+export const NUMOF_TOPROWS = 1
 
 export const COLORS = {
   black: '#000',
@@ -40,4 +40,3 @@ export const ATLAS_UI = new window.Image()
 ATLAS_MAP.src = './assets/sprites/terrain.png'
 ATLAS_SKIN.src = './assets/sprites/skins.png'
 ATLAS_UI.src = './assets/sprites/user_interface.png'
-

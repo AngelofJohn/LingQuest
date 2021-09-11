@@ -5,16 +5,21 @@ import {
   ATLAS_UI,
   CANVAS, COLORS, CONTEXT,
   PLAYER, MAX_HEALTH,
-  NUM_OF_COLS, NUM_OF_TOPROWS
+  NUMOF_COLS, NUMOF_TOPROWS
 } from './utils/constants.js'
 
+import {
+  GAMESTATE_DEFAULT,
+  GAMESTATE_QUESTLOG,
+  GAMESTATE_QUEST_SELECTION
+} from './utils/gameStates.js'
+
 import { DATA_NPC } from './data/NPCs.js'
-import { GAMESTATE_DEFAULT, GAMESTATE_QUESTLOG } from './utils/gameStates.js'
 import { drawMap, drawNPC, drawSprite } from './utils/draw.js'
 import { screen, setDimensions, sizeofTile } from './utils/dimensions.js'
 
 export let currentGameState = GAMESTATE_DEFAULT
-let currentMap = 0
+export let currentMap = 0
 export function gotoNextMap () { currentMap = (currentMap + 1) % 2 }
 export function switchtoGameState (gameState) { currentGameState = gameState }
 
@@ -24,19 +29,19 @@ function step (timestamp) {
   CONTEXT.fillRect(0, 0, CANVAS.width, CANVAS.height)
 
   CONTEXT.translate(screen.xmargin,
-    screen.ymargin + NUM_OF_TOPROWS * sizeofTile)
+    screen.ymargin + NUMOF_TOPROWS * sizeofTile)
 
   // Draw the top bar
   CONTEXT.fillStyle = COLORS.black
-  CONTEXT.fillRect(0, -NUM_OF_TOPROWS * sizeofTile,
-    screen.width, NUM_OF_TOPROWS * sizeofTile)
+  CONTEXT.fillRect(0, -NUMOF_TOPROWS * sizeofTile,
+    screen.width, NUMOF_TOPROWS * sizeofTile)
 
   CONTEXT.fillStyle = COLORS.yellow
   CONTEXT.font = `${sizeofTile}px OpenSansPX`
   CONTEXT.textAlign = 'right'
   CONTEXT.textBaseline = 'middle'
   CONTEXT.fillText(`${PLAYER.experience}XP / Level ${PLAYER.level}`,
-    (NUM_OF_COLS - 1) * sizeofTile, -sizeofTile / 2)
+    (NUMOF_COLS - 1) * sizeofTile, -sizeofTile / 2)
 
   for (let i = 1; i <= MAX_HEALTH; i++) {
     drawSprite(i, -1, ATLAS_UI, [(PLAYER.health >= i) ? 0 : 1, 0])
@@ -51,6 +56,9 @@ function step (timestamp) {
   switch (currentGameState.id) {
     case 'questlog':
       GAMESTATE_QUESTLOG.draw()
+      break
+    case 'questSelection':
+      GAMESTATE_QUEST_SELECTION.draw()
       break
   }
 

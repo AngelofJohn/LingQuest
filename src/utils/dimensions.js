@@ -3,7 +3,7 @@
 
 import {
   CANVAS, CONTEXT,
-  NUM_OF_COLS, NUM_OF_ROWS, NUM_OF_TOPROWS,
+  NUMOF_COLS, NUMOF_ROWS, NUMOF_TOPROWS,
   SIZEOF_SPRITE
 } from './constants.js'
 
@@ -16,16 +16,16 @@ export function setDimensions () {
   CANVAS.height = window.innerHeight
   CONTEXT.imageSmoothingEnabled = false
 
-  let factor = Math.min(CANVAS.height / (NUM_OF_ROWS + NUM_OF_TOPROWS),
-    CANVAS.width / NUM_OF_COLS)
+  let factor = Math.min(CANVAS.height / (NUMOF_ROWS + NUMOF_TOPROWS),
+    CANVAS.width / NUMOF_COLS)
   factor = Math.floor(factor)
 
-  screen.width = NUM_OF_COLS * factor
-  screen.height = (NUM_OF_ROWS + NUM_OF_TOPROWS) * factor
+  screen.width = NUMOF_COLS * factor
+  screen.height = (NUMOF_ROWS + NUMOF_TOPROWS) * factor
   screen.xmargin = (CANVAS.width - screen.width) / 2
   screen.ymargin = (CANVAS.height - screen.height) / 2
 
-  sizeofTile = screen.width / NUM_OF_COLS
+  sizeofTile = screen.width / NUMOF_COLS
   sizeofPixel = sizeofTile / SIZEOF_SPRITE
 }
 
