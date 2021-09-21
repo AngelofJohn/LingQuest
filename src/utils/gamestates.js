@@ -6,7 +6,7 @@ import { Button } from '../cls/Widget.js'
 import { NUMOF_COLS, NUMOF_ROWS, PLAYER } from './constants.js'
 import { DATA_QUEST } from '../data/quests.js'
 import { drawBodyText } from './draw.js'
-import { currentNPC, setQuest, switchtoGameState } from '../main.js'
+import { currentNPC, currentQuest, setQuest, switchtoGameState } from '../main.js'
 
 const BTN_PRIM_POS = [2, NUMOF_ROWS - 3]
 // const BTN_SCND_POS = [6, NUMOF_ROWS - 3]
@@ -46,7 +46,9 @@ export const GAMESTATE_QUEST = new GameState('quest',
   [new Button(BTN_CENT_POS, 'Quit', 'red', () => {
     switchtoGameState(GAMESTATE_DEFAULT)
   })],
-  () => {}
+  () => {
+    drawBodyText(currentQuest.introduction)
+  }
 )
 
 export const GAMESTATE_GAME_OVER = new GameState('gameover',

@@ -89,8 +89,12 @@ export function drawOverlay (title) {
 
 export function drawBodyText (text, indexofLine = 1) {
   CONTEXT.fillStyle = COLORS.black
-  CONTEXT.font = `${sizeofTile}px OpenSansPX`
+  CONTEXT.font = `${sizeofTile * 2/3}px OpenSansPX`
   CONTEXT.textAlign = 'left'
   CONTEXT.textBaseline = 'middle'
-  CONTEXT.fillText(text, 2 * sizeofTile, (3 + indexofLine) * sizeofTile)
+
+  const lengthofLine = 55
+  for (let i = 0; i < Math.floor(text.length / lengthofLine); i++) {
+    CONTEXT.fillText(text.substring(i * lengthofLine, (i+1)*lengthofLine), 2 * sizeofTile, (3 + indexofLine + i * 2/3) * sizeofTile)
+  }
 }
