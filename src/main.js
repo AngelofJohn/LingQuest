@@ -10,6 +10,7 @@ import {
 
 import {
   GAMESTATE_DEFAULT,
+  GAMESTATE_QUEST,
   GAMESTATE_QUESTLOG,
   GAMESTATE_QUEST_SELECTION
 } from './utils/gameStates.js'
@@ -23,13 +24,19 @@ import { screen, setDimensions, sizeofTile } from './utils/dimensions.js'
 export let currentGameState = GAMESTATE_DEFAULT
 export let currentMap = 0
 export let currentNPC
+export let currentQuest
+
 export function gotoNextMap () { currentMap = (currentMap + 1) % 2 }
 export function selectNPC (NPC) {
   currentNPC = NPC
-  GAMESTATE_QUEST_SELECTION.widgets[2] = new List(4,
+  GAMESTATE_QUEST_SELECTION.widgets[2] = new List(3,
     currentNPC.quests.map(quest => DATA_QUEST[quest].title))
 }
 export function switchtoGameState (gameState) { currentGameState = gameState }
+export function setQuest (quest) {
+  currentQuest = quest
+  GAMESTATE_QUEST.title = quest.title
+}
 
 function step (timestamp) {
   // Draw the background
@@ -67,6 +74,9 @@ function step (timestamp) {
       break
     case 'questSelection':
       GAMESTATE_QUEST_SELECTION.draw()
+      break
+    case 'quest':
+      GAMESTATE_QUEST.draw()
       break
   }
 

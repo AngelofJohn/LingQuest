@@ -21,6 +21,7 @@ export class Button extends Widget {
     this.style = style
     this.text = text
     this.action = action
+    this.isButton = true
   }
 
   draw () {
@@ -50,6 +51,12 @@ export class List extends Widget {
   constructor (positionY, items) {
     super([3, positionY], NUMOF_COLS - 4, items.length)
     this.items = items
+    this.index = 0
+    this.isList = true
+  }
+
+  action (mouseX, mouseY) {
+    this.index = Math.floor(mouseY/sizeofTile - this.position[1])
   }
 
   draw () {
@@ -59,9 +66,9 @@ export class List extends Widget {
       CONTEXT.font = `${sizeofTile}px OpenSansPX`
       CONTEXT.textAlign = 'left'
       CONTEXT.textBaseline = 'alphabetic'
-      CONTEXT.fillText(`[${i === 0 ? 'x' : ' '}] ` + item,
+      CONTEXT.fillText(`[${i === this.index ? 'x' : ' '}] ` + item,
         2 * sizeofTile,
-        (this.position[1] + i) * sizeofTile
+        (this.position[1] + i + 1) * sizeofTile
       )
     }
   }
