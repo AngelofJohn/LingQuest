@@ -22,4 +22,3 @@
   - [ ] Quest
 - [ ] `water TL` -> `water-TopLeft` etc.
 - [ ] Choose a consistent baseline (middle or alphabetic)
-- [ ] Fix button event (1/2 tile offset)
