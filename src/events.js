@@ -5,7 +5,7 @@ import {
   GAMESTATE_DEFAULT,
   GAMESTATE_QUESTLOG,
   GAMESTATE_QUEST_SELECTION
-} from './utils/gameStates.js'
+} from './utils/gamestates.js'
 
 import {
   currentGameState, currentMap,

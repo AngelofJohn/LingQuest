@@ -13,7 +13,7 @@ import {
   GAMESTATE_QUEST,
   GAMESTATE_QUESTLOG,
   GAMESTATE_QUEST_SELECTION
-} from './utils/gameStates.js'
+} from './utils/gamestates.js'
 
 import { List } from './cls/Widget.js'
 import { DATA_NPC } from './data/NPCs.js'
