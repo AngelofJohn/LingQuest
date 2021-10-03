@@ -23,6 +23,8 @@ function runAction (widget, mouseX, mouseY) {
       widget.action(currentGameState.widgets[2].index)
     } else if (widget.isList) {
       widget.action(mouseX, mouseY)
+    } else {
+      widget.action()
     }
   } else {
     widget.action()
