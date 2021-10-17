@@ -10,15 +10,15 @@
 ## To do
 
 - [ ] Import a bold version of the font for titles
-- [ ] change the cursor
-- [ ] let the NPCs have multiple quests
-- [ ] refactor the game states
-  - [ ] change name to `overlay`, `page` or something better
-  - [x] Implement `switchtoGameState`
+- [ ] Change the cursor
+- [ ] Let the NPCs have multiple quests
+- [ ] Refactor the game states
+  - [ ] Name to 'overlay', 'page'
+  - [x] Implement 'switchtoGameState'
   - [x] Game Over
-  - [ ] Profile / inventory
+  - [ ] Profile / Inventory
   - [ ] Quest Log
-  - [ ] Quest selection
+  - [ ] Quest Selection
   - [ ] Quest
-- [ ] `water TL` -> `water-TopLeft` etc.
+- [ ] 'water TL' -> 'water-TopLeft' etc.
 - [ ] Choose a consistent baseline (middle or alphabetic)
